@@ -38,7 +38,7 @@ module.exports = function (app, config) {
   // GAUL endpoints.
   //
   app.get('/gaul/:gaul_year', function (req, res, next) {
-    FetchGaulFile(gaul.year, gaul.admin, function (err, filename) {
+    Fetch.FetchGaulFile(gaul.year, gaul.admin, function (err, filename) {
       console.log(gaul)
       if (err) {
         console.log(err)
@@ -57,7 +57,7 @@ module.exports = function (app, config) {
   })
 
   app.get('/gaul/:gaul_year/:gaul_admin', function (req, res, next) {
-    FetchGaulFile(gaul.year, gaul.admin, function (err, filename) {
+    Fetch.FetchGaulFile(gaul.year, gaul.admin, function (err, filename) {
       if (err) {
         console.log(err)
         var payload = {
