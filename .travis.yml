@@ -1,13 +1,6 @@
 language: node_js
 node_js:
-  - "0.12"
-
-services:
-  - mongodb
-
-before_script:
-  - sleep 15
-  - mongo mydb_test --eval "db.addUser('$MONGODB_USER_NAME', '$MONGODB_USER_PASSWORD')"
+  - "4.1"
 
 install:
  - npm install
@@ -20,7 +13,7 @@ install:
 # run tests + coverage
 script:
   - make tests
-  # - make standard  # checks JS standard
+  - make standard  # checks JS standard
 
 # send coverage report to coveralls.io
 after_success:
