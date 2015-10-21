@@ -1,6 +1,6 @@
 {
   "name": "hio-serve",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Serving important set of static files.",
   "main": "server.js",
   "scripts": {
