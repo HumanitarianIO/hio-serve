@@ -1,4 +1,4 @@
-## Large File API
+## Large Files API
 Service for serving large files from [humanitarian.io](http://humanitarian.io).
 
 [![Build Status](https://travis-ci.org/humanitarianio/hio-serve.svg)](https://travis-ci.org/humanitarianio/hio-serve)
