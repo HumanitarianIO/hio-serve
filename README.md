@@ -1,39 +1,16 @@
-## Node Watch API
-Service designed to log the status of many Rolltime node collectors.
+## Large File API
+Service for serving large files from [humanitarian.io](http://humanitarian.io).
 
-[![Build Status](https://travis-ci.org/rolltime/rolltime-node-watch.svg)](https://travis-ci.org/rolltime/rolltime-node-watch)
+[![Build Status](https://travis-ci.org/humanitarianio/hio-serve.svg)](https://travis-ci.org/humanitarianio/hio-serve)
 
-## Usage
-The API has the following working methods:
+## GAUL Boundary Set
+The service only contains the GAUL boundary set. It follows `REST` principles. Here's an example of how it works:
 
-* `/` **GET**: Retrieves a running list of node status.
-* `/` **POST**: Stores a record of a node status. It needs the following arguments:
- * `id`: Node id. Nodes should have unique ids.
- * `status`: Either `error` or `ok`.
- * `message`: A string with the message. Required in case of `error`.
- * `time`: An [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time stamp (up to seconds).
+* `humanitarian.io/gaul/2014/2` Will download the administrative level 2 global boundary set for the 2014 release of the GAUL bondary set.
 
-Example request:
+**PS:** *You will need to download those separately*.
 
-```shell
-$ curl -X POST localhost:9000/ \
-  -d "id=collector-ny-01&status=error&message='Failed to collect data.'&time=2015-06-01T14:34:01'"
-```
 
 ## Docker Setup
-[![](https://badge.imagelayers.io/luiscape/rolltime-node-watch:latest.svg)](https://imagelayers.io/?images=luiscape/rolltime-node-watch:latest 'Get your own badge on imagelayers.io')
 
-Review the `Dockerfile` and run it linking to a MongoDB instance. `make setup` will try to setup its own collection in the instance (called `scraper_status`). This image doesn't need a volume mounted, but it needs the following environment variables in order to work appropriately:
-
-* `MONOGDB_SCRAPER_STATUS_USER_NAME`: Dedicated user name for manipulating collections.
-* `MONGODB_SCRAPER_STATUS_USER_PASSWORD`: Password for the user above.
-
-Those should be passed when running the image.
-
-```shell
-$ docker run -d --name scraper_status \
-  --link mongo:mongo \
-  -e MONOGDB_SCRAPER_STATUS_USER_NAME=foo \
-  -e MONGODB_SCRAPER_STATUS_USER_PASSWORD=bar \
-  luiscape/hdx-monitor-scraper-status:latest
-```
+This container has no links. It's active port is port `9000`.
