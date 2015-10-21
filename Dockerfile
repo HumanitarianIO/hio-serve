@@ -10,7 +10,7 @@ RUN \
   npm install -g pm2 \
   && git clone http://github.com/humanitarianio/hio-serve \
   && cd hio-serve \
-  npm install
+  make setup
 
 WORKDIR '/hio-serve'
 
