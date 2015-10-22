@@ -17,6 +17,11 @@ var port = process.env.PORT || 9000
 require('./app/routes.js')(app, config)
 
 //
+// Serving static files.
+//
+app.use(express.static('static'))
+
+//
 // Start server.
 //
 app.listen(port)
